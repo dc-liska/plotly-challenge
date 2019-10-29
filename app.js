@@ -55,9 +55,7 @@ function buildCharts(sample) {
       type: "pie"}
     ];
 
-    var pieChartLayout = {
-      margin: { t: 0, l: 0 }
-    };
+    var pieChartLayout = { margin: { t: 0, l: 0 } };
     Plotly.plot("pie", pieChartData, pieChartLayout);
   });
 } //Terminate buildCharts function
