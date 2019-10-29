@@ -40,13 +40,25 @@ function buildCharts(sample) {
           color: otu_ids
         }
       }
-    ]
+    ];
 
     plotly.plot("bubble",bubbleChartData,bubbleChartLayout);
 
-    // @TODO: Build a Pie Chart
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
+    // Build a Pie Chart
+    // slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    var pieChartData = [
+      { values: sample_values.slice(0, 10), //Getting top 10 results
+      labels: otu_ids.slice(0,10),
+      hovertext: otu_labels.slice(0,10),
+      hoverinfo:"hovertext",
+      type: "pie"}
+    ];
+
+    var pieChartLayout = {
+      margin: { t: 0, l: 0 }
+    };
+    Plotly.plot("pie", pieChartData, pieChartLayout);
   });
 } //Terminate buildCharts function
 
